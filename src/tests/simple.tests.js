@@ -1,6 +1,13 @@
+import DashboardPage from "./../po/pages/dashboard.page.js";
+import DoctorsPage from "../po/pages/doctors.page.js";
+
+const dashboardPage = new DashboardPage();
+const doctorsPage = new DoctorsPage();
+
+
 describe('Doctors page', () => {
     beforeEach(async() => {
-        await browser.url("https://ej2.syncfusion.com/showcase/angular/appointmentplanner/#/dashboard")
+        await dashboardPage.open()
     })
 
     it('Check page title', async () => {
@@ -9,13 +16,10 @@ describe('Doctors page', () => {
 
     it('Open model window for adding a new doctor', async() => {
         //Click on doctor item in side menu
-        const doctorItem = await $('[routerlink="/doctors"]')
-        await doctorItem.click() // Click on doctor item on sidebar
+        await dashboardPage.sideMenu.item('doctors').click()
 
         //Click on button to add doctor
-
-        const addDoctorButton = await $('.specialization-types button.e-control')
-        await addDoctorButton.click()
+        await doctorsPage.doctorsHeaderCompnent.addNewDoctorButton.click()
 
 
         //Check if modal window is visible
@@ -25,13 +29,11 @@ describe('Doctors page', () => {
 
     it('Add a new doctor', async() => {
         //Click on doctor item in side menu
-        const doctorItem = await $('[routerlink="/doctors"]')
-        await doctorItem.click() // Click on doctor item on sidebar
+        await dashboardPage.sideMenu.item('doctors').click()
 
         //Click on button to add doctor
 
-        const addDoctorButton = await $('.specialization-types button.e-control')
-        await addDoctorButton.click()
+        await doctorsPage.doctorsHeaderCompnent.addNewDoctorButton.click()
 
         //Get doctor add modal selector
 

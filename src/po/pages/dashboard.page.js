@@ -1,4 +1,4 @@
-import SideMenuComponent from '../components/sidemenu.component'
+import SideMenuComponent from '../components/common/sidemenu.component'
 
 
 
