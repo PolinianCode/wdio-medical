@@ -1,19 +1,14 @@
 import DoctorsHeaderComponent from "../components/doctors/header.component";
 import AddDoctorModalComponent from "../components/doctors/add-doctor.component"
+import BasePage from "./base.page";
 
-class DoctorsPage {
+class DoctorsPage extends BasePage {
 
     constructor() {
+        super("/showcase/angular/appointmentplanner/#/doctors")
         this.doctorsHeaderCompnent = new DoctorsHeaderComponent;
         this.addDoctorModal = new AddDoctorModalComponent;
     }
-
-    async open() {
-        await browser.url("https://ej2.syncfusion.com/showcase/angular/appointmentplanner/#/doctors")
-    }
-
-
-
 }
 
 export default DoctorsPage;
