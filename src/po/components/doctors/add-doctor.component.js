@@ -1,6 +1,8 @@
-class AddDoctorModalComponent {
-    get roorEl() {
-        return $('.new-doctor-dialog')
+import BaseComponent from "../common/base.component";
+
+class AddDoctorModalComponent extends BaseComponent {
+    constructor() {
+        super('.new-doctor-dialog')
     }
 }
 

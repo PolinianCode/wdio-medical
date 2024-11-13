@@ -1,7 +1,8 @@
-class DoctorsHeaderComponent {
+import BaseComponent from "../common/base.component";
 
-    get rootEl() {
-        return $('.specialization-types')
+class DoctorsHeaderComponent extends BaseComponent {
+    constructor() {
+        super('.specialization-types')
     }
 
 

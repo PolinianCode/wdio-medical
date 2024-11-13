@@ -17,13 +17,13 @@ describe('Doctors page', () => {
     it('Open model window for adding a new doctor', async() => {
         await dashboardPage.sideMenu.item('doctors').click()
         await doctorsPage.doctorsHeaderCompnent.addNewDoctorButton.click()
-        await expect(doctorsPage.addDoctorModal.roorEl).toBeDisplayed()
+        await expect(doctorsPage.addDoctorModal.rootEl).toBeDisplayed()
     })
 
     it('Add a new doctor', async() => {
         await dashboardPage.sideMenu.item('doctors').click()
         await doctorsPage.doctorsHeaderCompnent.addNewDoctorButton.click()
-        await doctorsPage.addDoctorModal.roorEl.waitForDisplayed()
+        await doctorsPage.addDoctorModal.rootEl.waitForDisplayed()
 
         //Fill in the data to inputs
 
@@ -39,7 +39,7 @@ describe('Doctors page', () => {
         const addDoctorButtonModel = await $('.e-footer-content button.e-primary')
         await addDoctorButtonModel.click()
 
-        await expect(doctorsPage.addDoctorModal.roorEl).not.toBeDisplayed()
+        await expect(doctorsPage.addDoctorModal.rootEl).not.toBeDisplayed()
 
 
         const addedDoctor = await $('#Specialist_8') // Get the last item directly as a single element
@@ -52,7 +52,7 @@ describe('Doctors page', () => {
     it('Closing add new doctar modal window with a cross button', async() => {
         await dashboardPage.sideMenu.item('doctors').click()
         await doctorsPage.doctorsHeaderCompnent.addNewDoctorButton.click()
-        await doctorsPage.addDoctorModal.roorEl.waitForDisplayed()
+        await doctorsPage.addDoctorModal.rootEl.waitForDisplayed()
 
 
         //Close modal
@@ -61,6 +61,6 @@ describe('Doctors page', () => {
 
         await closeModalButton.click()
 
-        await expect(doctorsPage.addDoctorModal.roorEl).not.toBeDisplayed()
+        await expect(doctorsPage.addDoctorModal.rootEl).not.toBeDisplayed()
     })
 })
