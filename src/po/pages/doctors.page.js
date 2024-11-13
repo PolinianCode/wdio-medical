@@ -1,9 +1,11 @@
 import DoctorsHeaderComponent from "../components/doctors/header.component";
+import AddDoctorModalComponent from "../components/doctors/add-doctor.component"
 
 class DoctorsPage {
 
     constructor() {
         this.doctorsHeaderCompnent = new DoctorsHeaderComponent;
+        this.addDoctorModal = new AddDoctorModalComponent;
     }
 
     async open() {

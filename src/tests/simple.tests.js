@@ -15,34 +15,15 @@ describe('Doctors page', () => {
     })
 
     it('Open model window for adding a new doctor', async() => {
-        //Click on doctor item in side menu
         await dashboardPage.sideMenu.item('doctors').click()
-
-        //Click on button to add doctor
         await doctorsPage.doctorsHeaderCompnent.addNewDoctorButton.click()
-
-
-        //Check if modal window is visible
-        const doctorDialog = await $('.new-doctor-dialog')
-        await expect(doctorDialog).toBeDisplayed()
+        await expect(doctorsPage.addDoctorModal.roorEl).toBeDisplayed()
     })
 
     it('Add a new doctor', async() => {
-        //Click on doctor item in side menu
         await dashboardPage.sideMenu.item('doctors').click()
-
-        //Click on button to add doctor
-
         await doctorsPage.doctorsHeaderCompnent.addNewDoctorButton.click()
-
-        //Get doctor add modal selector
-
-        const doctorDialog = await $('.new-doctor-dialog')
-
-        // Wait while doctor dialog window will be opened
-
-        await doctorDialog.waitForDisplayed();
-
+        await doctorsPage.addDoctorModal.roorEl.waitForDisplayed()
 
         //Fill in the data to inputs
 
@@ -58,7 +39,7 @@ describe('Doctors page', () => {
         const addDoctorButtonModel = await $('.e-footer-content button.e-primary')
         await addDoctorButtonModel.click()
 
-        await expect(doctorDialog).not.toBeDisplayed()
+        await expect(doctorsPage.addDoctorModal.roorEl).not.toBeDisplayed()
 
 
         const addedDoctor = await $('#Specialist_8') // Get the last item directly as a single element
@@ -69,18 +50,9 @@ describe('Doctors page', () => {
     })
  
     it('Closing add new doctar modal window with a cross button', async() => {
-        const doctorItem = await $('[routerlink="/doctors"]')
-        await doctorItem.click() // Click on doctor item on sidebar
-
-        //Click on button to add doctor
-
-        const addDoctorButton = await $('.specialization-types button.e-control')
-        await addDoctorButton.click()
-
-
-        //Check if modal window is visible
-        const doctorDialog = await $('.new-doctor-dialog')
-        await expect(doctorDialog).toBeDisplayed()
+        await dashboardPage.sideMenu.item('doctors').click()
+        await doctorsPage.doctorsHeaderCompnent.addNewDoctorButton.click()
+        await doctorsPage.addDoctorModal.roorEl.waitForDisplayed()
 
 
         //Close modal
@@ -89,6 +61,6 @@ describe('Doctors page', () => {
 
         await closeModalButton.click()
 
-        await expect(doctorDialog).not.toBeDisplayed()
+        await expect(doctorsPage.addDoctorModal.roorEl).not.toBeDisplayed()
     })
 })
